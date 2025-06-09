@@ -67,7 +67,6 @@
       color: #d6336c;
       text-align: center;
     }
-    img.product-img, img.before-after { width: 100%; max-width: 400px; display: block; margin: 0 auto 15px; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }
     form { max-width: 400px; margin: 0 auto; }
     label { display: block; margin-top: 12px; font-size: 16px; }
     input, textarea { width: 100%; padding: 12px; margin-top: 5px; font-size: 16px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
@@ -113,14 +112,8 @@
 </head>
 <body>
 
-  <!-- รูปสินค้า -->
-  <img src="product.jpg" alt="M-BLITHE" class="product-img">
-
   <!-- ชื่อสินค้า -->
   <h1>✨ M-BLITHE คอนซีลเลอร์ - เลือกเฉดผิวได้!</h1>
-
-  <!-- รูป Before/After -->
-  <img src="before-after.jpg" alt="Before After" class="before-after">
 
   <!-- รีวิว -->
   <div class="review">
@@ -129,7 +122,7 @@
   </div>
 
   <!-- ราคา -->
-  <p class="price">🔥 ราคา 299 บาท เท่านั้น!</p>
+  <p class="price">🔥 จากราคาปกติ 399 บาท สั่งวันนี้เหลือ 299 บาท เท่านั้น!</p>
 
   <!-- ฟอร์มสั่งซื้อ -->
   <form id="orderForm" onsubmit="sendTelegram(event);">
