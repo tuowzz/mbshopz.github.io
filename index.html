@@ -74,7 +74,7 @@
   <p class="price">🔥 ราคา 299 บาท เท่านั้น!</p>
 
   <!-- ฟอร์มสั่งซื้อ -->
-  <form id="orderForm" action="order_telegram.php" method="POST">
+  <form id="orderForm" onsubmit="sendTelegram(event);">
 
     <!-- ตัวเลือกผิว -->
     <label>เลือกเฉดสี / ผิว</label><br>
@@ -105,20 +105,45 @@
   <script>
     function firePixel() {
       const product = document.querySelector('input[name="product"]:checked').value;
-      let value = 299; // default ตอนนี้ 299 บาท ทุกตัว
+      let value = 299;
 
-      // รองรับอนาคต
       if (product.includes("399")) { value = 399; }
       else if (product.includes("499")) { value = 499; }
 
-      // ยิง Facebook Pixel
       fbq('track', 'Purchase', {value: value, currency: 'THB'});
-
-      // ยิง TikTok Pixel
       ttq.track('CompletePayment');
+    }
+  </script>
 
-      // Show popup
-      document.getElementById('popup').style.display = 'block';
+  <!-- ส่ง Telegram ผ่าน API -->
+  <script>
+    function sendTelegram(event) {
+      event.preventDefault();
+
+      const product = document.querySelector('input[name="product"]:checked').value;
+      const name = document.querySelector('input[name="name"]').value;
+      const phone = document.querySelector('input[name="phone"]').value;
+      const address = document.querySelector('textarea[name="address"]').value;
+
+      const order_id = 'ORD-' + Date.now();
+
+      const message = `🛍️ ออร์เดอร์ใหม่ (Order ID: ${order_id})%0A%0Aสินค้า: ${product}%0Aชื่อ: ${name}%0Aโทร: ${phone}%0Aที่อยู่: ${address}`;
+
+      const botToken = '7781216074:AAGx7CL1EWeehlPI9xlXQr-RWdPfZ5_stQ0';
+      const chatId = '-4891953915';
+
+      const telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`;
+
+      fetch(telegramURL)
+        .then(response => {
+          firePixel();
+          document.getElementById('popup').style.display = 'block';
+          document.getElementById('orderForm').reset();
+        })
+        .catch(error => {
+          alert('เกิดข้อผิดพลาดในการส่งออร์เดอร์ค่ะ!');
+          console.error('Error:', error);
+        });
     }
   </script>
 
