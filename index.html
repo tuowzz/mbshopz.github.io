@@ -63,6 +63,7 @@
     button { margin-top: 20px; background-color: #fe2c55; color: white; padding: 16px; width: 100%; border: none; border-radius: 8px; font-size: 18px; cursor: pointer; transition: background-color 0.3s ease; }
     button:hover { background-color: #e6234e; }
     #popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; padding: 20px 30px; box-shadow: 0 0 20px rgba(0,0,0,0.3); border-radius: 10px; z-index: 9999; text-align: center; font-size: 16px; color: #333; }
+    .radio-option { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: 16px; }
   </style>
 </head>
 <body>
@@ -78,10 +79,26 @@
 
     <!-- ตัวเลือกผิว -->
     <label>เลือกเฉดสี / ผิว</label><br>
-    <input type="radio" name="product" value="M-BLITHE คอนซีลเลอร์ B01 - ผิวขาวเหลือง - 299 บาท" required> B01 - ผิวขาวเหลือง - 299 บาท<br>
-    <input type="radio" name="product" value="M-BLITHE คอนซีลเลอร์ B02 - ผิวสองสีไปทางขาวเหลือง - 299 บาท"> B02 - ผิวสองสีไปทางขาวเหลือง - 299 บาท<br>
-    <input type="radio" name="product" value="M-BLITHE คอนซีลเลอร์ B2.5 - ผิวสองสีไปทางคล้ำ - 299 บาท"> B2.5 - ผิวสองสีไปทางคล้ำ - 299 บาท<br>
-    <input type="radio" name="product" value="M-BLITHE คอนซีลเลอร์ B03 - ผิวคล้ำ - 299 บาท"> B03 - ผิวคล้ำ - 299 บาท<br>
+
+    <label class="radio-option">
+      <input type="radio" name="product" value="M-BLITHE คอนซีลเลอร์ B01 - ผิวขาวเหลือง - 299 บาท" required>
+      B01 - ผิวขาวเหลือง - 299 บาท
+    </label>
+
+    <label class="radio-option">
+      <input type="radio" name="product" value="M-BLITHE คอนซีลเลอร์ B02 - ผิวสองสีไปทางขาวเหลือง - 299 บาท">
+      B02 - ผิวสองสีไปทางขาวเหลือง - 299 บาท
+    </label>
+
+    <label class="radio-option">
+      <input type="radio" name="product" value="M-BLITHE คอนซีลเลอร์ B2.5 - ผิวสองสีไปทางคล้ำ - 299 บาท">
+      B2.5 - ผิวสองสีไปทางคล้ำ - 299 บาท
+    </label>
+
+    <label class="radio-option">
+      <input type="radio" name="product" value="M-BLITHE คอนซีลเลอร์ B03 - ผิวคล้ำ - 299 บาท">
+      B03 - ผิวคล้ำ - 299 บาท
+    </label>
 
     <!-- ข้อมูลลูกค้า -->
     <label>ชื่อ-นามสกุล</label>
@@ -102,24 +119,18 @@
     เจ้าหน้าที่ขนส่งจะโทรหาคุณเพื่อยืนยันการจัดส่งนะคะ 📞
   </div>
 
-  <!-- Fire Pixel -->
+  <!-- Script Zone -->
   <script>
     function firePixel() {
       const product = document.querySelector('input[name="product"]:checked').value;
-      let value = 299;
-
-      if (product.includes("399")) { value = 399; }
-      else if (product.includes("499")) { value = 499; }
+      let value = 299; // default
 
       fbq('track', 'Purchase', {value: value, currency: 'THB'});
       ttq.track('CompletePayment');
     }
-  </script>
 
-  <!-- ส่ง Telegram ผ่าน API -->
-  <script>
     function sendTelegram(event) {
-      event.preventDefault();
+      event.preventDefault(); // กัน Submit ปกติ
 
       const product = document.querySelector('input[name="product"]:checked').value;
       const name = document.querySelector('input[name="name"]').value;
@@ -137,13 +148,13 @@
 
       fetch(telegramURL)
         .then(response => {
-          firePixel();
-          document.getElementById('popup').style.display = 'block';
-          document.getElementById('orderForm').reset();
+            firePixel();
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('orderForm').reset();
         })
         .catch(error => {
-          alert('เกิดข้อผิดพลาดในการส่งออร์เดอร์ค่ะ!');
-          console.error('Error:', error);
+            alert('เกิดข้อผิดพลาดในการส่งออร์เดอร์ค่ะ!');
+            console.error('Error:', error);
         });
     }
   </script>
