@@ -6,6 +6,60 @@
     <title>🛍️ M-BLITHE คอนซีลเลอร์ - สั่งซื้อเลย!</title>
     <!-- เพิ่มฟอนต์ Kanit จาก Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,
+        'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '127978927946856'); // Facebook Pixel ID ของคุณ
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=127978927946856&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <!-- TikTok Pixel Code -->
+    <script>
+        !function (w, d, t) {
+          w.TiktokAnalyticsObject = t;
+          var ttq = w[t] = w[t] || [];
+          ttq.methods = ["page","track"];
+          ttq.setAndDefer = function (t, e) {
+            t[e] = function () {
+              t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+            }
+          };
+          for (var i = 0; i < ttq.methods.length; i++) {
+            ttq.setAndDefer(ttq, ttq.methods[i]);
+          }
+          ttq.load = function (e, n) {
+            var i = "https://analytics.tiktok.com/i18n/pixel/events.js";
+            ttq._i = ttq._i || {};
+            ttq._i[e] = [];
+            ttq._t = ttq._t || {};
+            ttq._t[e] = +new Date;
+            ttq._o = ttq._o || {};
+            ttq._o[e] = n || {};
+            var o = document.createElement("script");
+            o.type = "text/javascript";
+            o.async = true;
+            o.src = i + "?sdkid=" + e + "&lib=" + t;
+            var a = document.getElementsByTagName("script")[0];
+            a.parentNode.insertBefore(o, a);
+          };
+          ttq.load('D0EVS2JC77U9C23772EG'); // TikTok Pixel ID ของคุณ
+          ttq.page();
+        }(window, document, 'ttq');
+    </script>
+    <!-- End TikTok Pixel Code -->
+
     <style>
         body {
             font-family: 'Kanit', sans-serif; /* ใช้ฟอนต์ Kanit */
@@ -198,7 +252,7 @@
         .radio-option {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 12px; /* เพิ่มระยะห่างระหว่าง radio และ label */
             margin-top: 15px;
             font-size: 1.05rem;
             padding: 10px 0;
@@ -206,26 +260,26 @@
             color: #333;
         }
         .radio-option input[type="radio"] {
-            -webkit-appearance: none;
+            -webkit-appearance: none; /* ซ่อน radio button default */
             -moz-appearance: none;
             appearance: none;
-            width: 20px;
+            width: 20px; /* ขนาดของ radio button */
             height: 20px;
             border: 2px solid #ccc;
-            border-radius: 50%;
+            border-radius: 50%; /* ทำให้เป็นวงกลม */
             position: relative;
             cursor: pointer;
             outline: none;
             transition: border-color 0.3s ease;
         }
         .radio-option input[type="radio"]:checked {
-            border-color: #fe2c55;
-            background-color: #fe2c55;
+            border-color: #fe2c55; /* สี border เมื่อเลือก */
+            background-color: #fe2c55; /* สีพื้นหลังเมื่อเลือก */
         }
         .radio-option input[type="radio"]:checked::before {
             content: '';
             display: block;
-            width: 10px;
+            width: 10px; /* ขนาดของวงกลมด้านใน */
             height: 10px;
             background-color: white;
             border-radius: 50%;
@@ -234,7 +288,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
-        .radio-option span {
+        .radio-option span { /* สำหรับข้อความเฉดสี */
             flex-grow: 1;
         }
 
@@ -410,7 +464,8 @@
 </head>
 <body>
     <div class="container">
-        <!-- **โปรดแทนที่ 'YOUR_GITHUB_IMAGE_DIRECT_LINK_HERE' ด้วย Direct Link ของรูปภาพที่คุณได้จาก GitHub** -->
+        <!-- **โปรดแทนที่ 'YOUR_GITHUB_RAW_IMAGE_LINK_HERE' ด้วย Direct Link ของรูปภาพที่คุณได้จาก GitHub** -->
+        <!-- ตัวอย่าง: https://raw.githubusercontent.com/username/repo/main/path/to/photo_2025-06-10_00-30-00.jpg -->
         <img src="photo_2025-06-10_00-30-00.jpg" alt="M-BLITHE คอนซีลเลอร์" class="product-image" />
 
         <h1>✨ M-BLITHE คอนซีลเลอร์ ✨</h1>
@@ -469,7 +524,7 @@
 
         <div id="loadingMessage">กำลังส่งข้อมูล... กรุณารอสักครู่</div>
 
-        <a href="https://lin.ee/wKelfsp" class="line-btn" target="_blank">💬 สอบถามหรือสั่งซื้อผ่าน LINE</a>
+        <a href="https://lin.ee/wKelfsp" class="line-btn" target="_blank" onclick="fbq('track', 'Lead'); ttq.track('SubmitForm');">💬 สอบถามหรือสั่งซื้อผ่าน LINE</a>
 
         <div class="trust-badges">
             <div class="badge-item"><span class="icon">✅</span>เก็บเงินปลายทาง</div>
@@ -575,6 +630,11 @@
                 if (data.result === 'success') {
                     document.getElementById("popup").style.display = "block"; // แสดง Popup
                     orderForm.reset(); // ล้างฟอร์มทั้งหมด
+
+                    // Fire Facebook & TikTok Purchase Pixels
+                    fbq('track', 'Purchase', {value: 299.00, currency: 'THB'}); // หรือค่าที่แท้จริง
+                    ttq.track('CompletePayment');
+
                     setTimeout(() => { // ซ่อน Popup หลังจาก 3 วินาที
                         document.getElementById("popup").style.display = "none";
                     }, 3000);
