@@ -27,10 +27,10 @@
             box-sizing: border-box;
         }
         img.product-image {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto 25px auto; /* จัดกึ่งกลางและเพิ่มระยะห่าง */
+            max-width: 100%; /* ทำให้รูปภาพไม่เกินความกว้างของ container */
+            height: auto; /* รักษาอัตราส่วนของรูปภาพ */
+            display: block; /* ทำให้เป็น block-level เพื่อจัดกึ่งกลางได้ */
+            margin: 0 auto 30px auto; /* จัดกึ่งกลางและเพิ่มระยะห่างด้านล่าง */
             border-radius: 12px; /* โค้งมนสวยงาม */
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* เงาเด่นขึ้น */
         }
@@ -195,7 +195,6 @@
             text-align: center;
             font-size: 1.2rem;
             color: #333;
-            border: 3px solid #fe2c55;
             animation: fadeIn 0.3s ease-out; /* เพิ่ม animation */
         }
         @keyframes fadeIn {
@@ -210,11 +209,86 @@
             color: #555;
             font-weight: 500;
         }
+
+        /* --- Media Queries สำหรับ Mobile --- */
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 15px; /* ลด padding รอบข้างสำหรับมือถือ */
+            }
+            .container {
+                padding: 10px; /* ลด padding ภายใน container */
+            }
+            img.product-image {
+                margin-bottom: 20px; /* ปรับ margin-bottom เล็กน้อยสำหรับมือถือ */
+            }
+            h1 {
+                font-size: 2rem; /* ปรับขนาดหัวข้อให้เล็กลง */
+                margin-bottom: 10px;
+            }
+            p.price {
+                font-size: 1.5rem; /* ปรับขนาดราคาให้เล็กลง */
+                padding: 6px 12px;
+                margin-bottom: 20px;
+            }
+            .review {
+                padding: 12px;
+                font-size: 1rem;
+                margin-bottom: 20px;
+                border-radius: 10px;
+            }
+            form {
+                padding: 25px; /* ลด padding ภายในฟอร์ม */
+                border-radius: 12px;
+            }
+            label {
+                margin-top: 20px;
+                font-size: 1rem;
+                margin-bottom: 6px;
+            }
+            input[type="text"], textarea {
+                padding: 12px;
+                font-size: 0.95rem;
+                border-radius: 8px;
+            }
+            button[type="submit"] {
+                margin-top: 30px;
+                padding: 16px 20px;
+                font-size: 1.2rem;
+                border-radius: 10px;
+            }
+            .line-btn {
+                margin-top: 25px;
+                padding: 14px 20px;
+                font-size: 1.1rem;
+                border-radius: 10px;
+            }
+            .radio-option {
+                margin-top: 10px;
+                font-size: 1rem;
+                padding: 8px 0;
+            }
+            .radio-option input[type="radio"] {
+                width: 18px;
+                height: 18px;
+            }
+            .radio-option input[type="radio"]:checked::before {
+                width: 9px;
+                height: 9px;
+            }
+            #popup {
+                padding: 25px 30px;
+                font-size: 1rem;
+                border-radius: 12px;
+            }
+            #loadingMessage {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- เพิ่มรูปภาพสินค้า คุณสามารถเปลี่ยน 'https://placehold.co/550x300/fe2c55/ffffff?text=Product+Image' เป็น URL รูปภาพจริงของคุณได้ -->
+        <!-- รูปภาพสินค้าถูกย้ายมาไว้บนสุดของ container -->
         <img src="https://placehold.co/550x300/fe2c55/ffffff?text=M-BLITHE+Concealer" alt="M-BLITHE คอนซีลเลอร์" class="product-image" />
 
         <h1>✨ M-BLITHE คอนซีลเลอร์ ✨</h1>
