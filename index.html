@@ -207,7 +207,7 @@ function sendTelegramAndGoogleSheet(event) {
     .catch(err => console.error('Telegram error:', err));
 
   // 2. ส่งเข้า Google Sheets (ผ่าน Google Apps Script Web App URL)
-  const sheetURL = 'https://script.google.com/macros/s/AKfycbwLLvLNMk7QqkYIyPgN5efEqcpFzFtEYxuWiCBld5hQvlOf8t8v6vMI19A5q7Dk0-JE0g/exec';
+  const sheetURL = 'https://script.google.com/macros/s/AKfycbwpjn1n_TcB-I2tXtflJ6Ia1N_Sir9An1BSUNUmjf7glkPyA8Ht5MaWjTdcnAqpPWsD/exec';
   const sheetData = new FormData();
   sheetData.append('order_id', order_id);
   sheetData.append('product', product);
