@@ -185,52 +185,52 @@
 
   <!-- Script Zone -->
   <script>
-function sendTelegramAndGoogleSheet(event) {
-  event.preventDefault();
+    // Countdown
+    let countdownTime = 10;
+    const timerEl = document.getElementById('timer');
+    const countdown = setInterval(() => {
+      countdownTime--;
+      timerEl.textContent = countdownTime;
+      if (countdownTime <= 0) clearInterval(countdown);
+    }, 1000);
 
-  const product = document.querySelector('input[name="product"]:checked').value;
-  const name = document.querySelector('input[name="name"]').value;
-  const phone = document.querySelector('input[name="phone"]').value;
-  const address = document.querySelector('textarea[name="address"]').value;
-  const order_id = 'ORD-' + Date.now();
+    function firePixel() {
+      const product = document.querySelector('input[name="product"]:checked').value;
+      let value = 299;
 
-  const message = `🛍️ ออร์เดอร์ใหม่ (Order ID: ${order_id})%0A%0Aสินค้า: ${product}%0Aชื่อ: ${name}%0Aโทร: ${phone}%0Aที่อยู่: ${address}`;
+      fbq('track', 'Purchase', {value: value, currency: 'THB'});
+      ttq.track('CompletePayment');
+    }
 
-  // 1. ส่งเข้า Telegram
-  const botToken = '7781216074:AAGx7CL1EWeehlPI9xlXQr-RWdPfZ5_stQ0';
-  const chatId = '-4891953915';
-  const telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`;
+    function sendTelegram(event) {
+      event.preventDefault();
 
-  fetch(telegramURL)
-    .then(res => res.json())
-    .then(data => console.log('ส่งเข้า Telegram แล้ว:', data))
-    .catch(err => console.error('Telegram error:', err));
+      const product = document.querySelector('input[name="product"]:checked').value;
+      const name = document.querySelector('input[name="name"]').value;
+      const phone = document.querySelector('input[name="phone"]').value;
+      const address = document.querySelector('textarea[name="address"]').value;
 
-  // 2. ส่งเข้า Google Sheets (ผ่าน Google Apps Script Web App URL)
-  const sheetURL = 'https://script.google.com/macros/s/AKfycbwpjn1n_TcB-I2tXtflJ6Ia1N_Sir9An1BSUNUmjf7glkPyA8Ht5MaWjTdcnAqpPWsD/exec';
-  const sheetData = new FormData();
-  sheetData.append('order_id', order_id);
-  sheetData.append('product', product);
-  sheetData.append('name', name);
-  sheetData.append('phone', phone);
-  sheetData.append('address', address);
+      const order_id = 'ORD-' + Date.now();
 
-  fetch(sheetURL, {
-    method: 'POST',
-    body: sheetData
-  })
-    .then(res => res.text())
-    .then(result => console.log('ส่งเข้า Google Sheet แล้ว:', result))
-    .catch(err => console.error('Google Sheet error:', err));
+      const message = `🛍️ ออร์เดอร์ใหม่ (Order ID: ${order_id})%0A%0Aสินค้า: ${product}%0Aชื่อ: ${name}%0Aโทร: ${phone}%0Aที่อยู่: ${address}`;
 
-  firePixel(); // ส่ง Pixel tracking
+      const botToken = '7781216074:AAGx7CL1EWeehlPI9xlXQr-RWdPfZ5_stQ0';
+      const chatId = '-4891953915';
 
-  // แสดง popup ขอบคุณ
-  document.getElementById('popup').style.display = 'block';
-  document.getElementById('orderForm').reset();
-}
-</script>
+      const telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`;
 
+      fetch(telegramURL)
+        .then(response => {
+            firePixel();
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('orderForm').reset();
+        })
+        .catch(error => {
+            alert('เกิดข้อผิดพลาดในการส่งออร์เดอร์ค่ะ!');
+            console.error('Error:', error);
+        });
+    }
+  </script>
 
 </body>
 </html>
