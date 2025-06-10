@@ -1,62 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>🛍️ M-BLITHE คอนซีลเลอร์ - สั่งซื้อเลย!</title>
-
-  <!-- Facebook Pixel -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)}; 
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,
-    'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '127978927946856');
-    fbq('track', 'PageView');
-  </script>
-
-  <!-- TikTok Pixel -->
-  <script>
-    !function (w, d, t) {
-      w.TiktokAnalyticsObject = t;
-      var ttq = w[t] = w[t] || [];
-      ttq.methods = ["page","track"];
-      ttq.setAndDefer = function (t, e) {
-        t[e] = function () {
-          t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
-        }
-      };
-      for (var i = 0; i < ttq.methods.length; i++) {
-        ttq.setAndDefer(ttq, ttq.methods[i]);
-      }
-      ttq.load = function (e, n) {
-        var i = "https://analytics.tiktok.com/i18n/pixel/events.js";
-        ttq._i = ttq._i || {};
-        ttq._i[e] = [];
-        ttq._t = ttq._t || {};
-        ttq._t[e] = +new Date;
-        ttq._o = ttq._o || {};
-        ttq._o[e] = n || {};
-        var o = document.createElement("script");
-        o.type = "text/javascript";
-        o.async = true;
-        o.src = i + "?sdkid=" + e + "&lib=" + t;
-        var a = document.getElementsByTagName("script")[0];
-        a.parentNode.insertBefore(o, a);
-      };
-      ttq.load('D0EVS2JC77U9C23772EG');
-      ttq.page();
-    }(window, document, 'ttq');
-  </script>
-
   <style>
     body { font-family: Arial, sans-serif; background: #fff; padding: 20px; color: #333; }
-    h1 { font-size: 24px; text-align: center; margin-bottom: 10px; color: #111; }
-    p.price { text-align: center; font-size: 20px; color: #fe2c55; margin-bottom: 10px; font-weight: bold; }
+    h1 { font-size: 24px; text-align: center; color: #111; }
+    p.price { text-align: center; font-size: 20px; color: #fe2c55; font-weight: bold; }
     .review {
       border: 1px solid #ffe0e0;
       background: #fff5f5;
@@ -69,21 +21,29 @@
     }
     form { max-width: 400px; margin: 0 auto; }
     label { display: block; margin-top: 12px; font-size: 16px; }
-    input, textarea { width: 100%; padding: 12px; margin-top: 5px; font-size: 16px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
-    button { margin-top: 20px; background-color: #fe2c55; color: white; padding: 16px; width: 100%; border: none; border-radius: 8px; font-size: 18px; cursor: pointer; transition: background-color 0.3s ease; }
+    input, textarea {
+      width: 100%; padding: 12px; margin-top: 5px;
+      font-size: 16px; border: 1px solid #ccc;
+      border-radius: 6px; box-sizing: border-box;
+    }
+    button {
+      margin-top: 20px; background-color: #fe2c55; color: white;
+      padding: 16px; width: 100%; border: none;
+      border-radius: 8px; font-size: 18px;
+      cursor: pointer; transition: background-color 0.3s ease;
+    }
     button:hover { background-color: #e6234e; }
     .line-btn {
-      display: block;
-      text-align: center;
-      margin-top: 15px;
-      background-color: #00b900;
-      color: white;
-      padding: 12px;
-      border-radius: 8px;
-      font-size: 18px;
+      display: block; text-align: center; margin-top: 15px;
+      background-color: #00b900; color: white;
+      padding: 12px; border-radius: 8px; font-size: 18px;
       text-decoration: none;
     }
-    .line-btn:hover { background-color: #009900; }
+    .radio-option {
+      display: grid; grid-template-columns: auto 1fr;
+      align-items: center; gap: 8px;
+      margin-top: 8px; font-size: 16px; padding: 5px 0;
+    }
     #popup {
       display: none; position: fixed; top: 50%; left: 50%;
       transform: translate(-50%, -50%);
@@ -92,145 +52,70 @@
       border-radius: 10px; z-index: 9999;
       text-align: center; font-size: 16px; color: #333;
     }
-    .radio-option {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      align-items: center;
-      gap: 8px;
-      margin-top: 8px;
-      font-size: 16px;
-      padding: 5px 0;
-      line-height: 1.4;
-    }
-    .countdown {
-      text-align: center;
-      font-size: 16px;
-      color: #e53935;
-      margin-top: 15px;
-    }
   </style>
 </head>
 <body>
-<img src="photo_2025-06-10_00-30-00.jpg" alt="M-BLITHE คอนซีลเลอร์" style="width:100%; height:auto; display:block; margin-bottom:15px;" />
+<h1>✨ M-BLITHE คอนซีลเลอร์ - เลือกเฉดผิวได้!</h1>
+<div class="review">
+  ⭐⭐⭐⭐⭐ รีวิวจริง! ลูกค้า 9,000+ คนบอกต่อ ❤️<br>
+  "ปกปิดดีมาก เนียน ไม่เป็นคราบ ใช้แล้วติดใจค่ะ 🥰"
+</div>
+<p class="price">🔥 จาก 390 บาท เหลือ 299 บาท เท่านั้น!</p>
 
-  <!-- ชื่อสินค้า -->
-  <h1>✨ M-BLITHE คอนซีลเลอร์ - เลือกเฉดผิวได้!</h1>
+<form id="orderForm" onsubmit="sendOrder(event);">
+  <label>เลือกเฉดสี / ผิว</label>
+  <label class="radio-option"><input type="radio" name="product" value="B01 - ผิวขาวเหลือง - 299 บาท" required> B01 - ผิวขาวเหลือง</label>
+  <label class="radio-option"><input type="radio" name="product" value="B02 - ผิวสองสีขาวเหลือง - 299 บาท"> B02 - ผิวสองสีขาวเหลือง</label>
+  <label class="radio-option"><input type="radio" name="product" value="B2.5 - ผิวสองสีคล้ำ - 299 บาท"> B2.5 - ผิวสองสีคล้ำ</label>
+  <label class="radio-option"><input type="radio" name="product" value="B03 - ผิวคล้ำ - 299 บาท"> B03 - ผิวคล้ำ</label>
 
-  <!-- รีวิว -->
-  <div class="review">
-    ⭐⭐⭐⭐⭐ รีวิวจริง! ลูกค้า 9,000+ คนบอกต่อ ❤️<br>
-    "ปกปิดดีมาก เนียน ไม่เป็นคราบ ใช้แล้วติดใจค่ะ 🥰"
-  </div>
+  <label>ชื่อ-นามสกุล</label>
+  <input type="text" name="name" required>
+  <label>เบอร์โทรศัพท์</label>
+  <input type="text" name="phone" required>
+  <label>ที่อยู่จัดส่ง</label>
+  <textarea name="address" rows="3" required></textarea>
 
-  <!-- ราคา -->
-  <p class="price">🔥จากราคาปกติ 390 บาท สั่งวันนี้เหลือเพียง ราคา 299 บาท เท่านั้น!</p>
+  <button type="submit">🛍️ กดสั่งซื้อเลย (รับโปรพิเศษ!)</button>
+</form>
 
-  <!-- ฟอร์มสั่งซื้อ -->
-  <form id="orderForm" onsubmit="sendTelegram(event);">
+<a href="https://lin.ee/wKelfsp" class="line-btn" target="_blank">💬 แอดไลน์ สั่งซื้อกับแอดมิน</a>
 
-    <!-- ตัวเลือกผิว -->
-    <label>เลือกเฉดสี / ผิว</label><br>
+<div id="popup">✅ ขอบคุณค่ะ! เจ้าหน้าที่จะติดต่อคุณเพื่อยืนยันการจัดส่งค่ะ 📞</div>
 
-    <label class="radio-option">
-      <input type="radio" name="product" value="M-BLITHE คอนซีลเลอร์ B01 - ผิวขาวเหลือง - 299 บาท" required>
-      B01 - ผิวขาวเหลือง - 299 บาท
-    </label>
+<script>
+  function sendOrder(event) {
+    event.preventDefault();
+    const order_id = 'ORD-' + Date.now();
+    const product = document.querySelector('input[name="product"]:checked').value;
+    const name = document.querySelector('input[name="name"]').value;
+    const phone = document.querySelector('input[name="phone"]').value;
+    const address = document.querySelector('textarea[name="address"]').value;
 
-    <label class="radio-option">
-      <input type="radio" name="product" value="M-BLITHE คอนซีลเลอร์ B02 - ผิวสองสีไปทางขาวเหลือง - 299 บาท">
-      B02 - ผิวสองสีไปทางขาวเหลือง - 299 บาท
-    </label>
+    const telegramURL = "https://api.telegram.org/bot{BOT_TOKEN}/sendMessage?chat_id={CHAT_ID}&text=" +
+      encodeURIComponent("🛍️ ออร์เดอร์ใหม่\nOrder ID: " + order_id + 
+      "\nสินค้า: " + product + "\nชื่อ: " + name +
+      "\nโทร: " + phone + "\nที่อยู่: " + address);
 
-    <label class="radio-option">
-      <input type="radio" name="product" value="M-BLITHE คอนซีลเลอร์ B2.5 - ผิวสองสีไปทางคล้ำ - 299 บาท">
-      B2.5 - ผิวสองสีไปทางคล้ำ - 299 บาท
-    </label>
+    const sheetURL = "https://script.google.com/macros/s/AKfycbwLLvLNMk7QqkYIyPgN5efEqcpFzFtEYxuWiCBld5hQvlOf8t8v6vMI19A5q7Dk0-JE0g/exec";
 
-    <label class="radio-option">
-      <input type="radio" name="product" value="M-BLITHE คอนซีลเลอร์ B03 - ผิวคล้ำ - 299 บาท">
-      B03 - ผิวคล้ำ - 299 บาท
-    </label>
+    const formData = new FormData();
+    formData.append("order_id", order_id);
+    formData.append("product", product);
+    formData.append("name", name);
+    formData.append("phone", phone);
+    formData.append("address", address);
 
-    <!-- ข้อมูลลูกค้า -->
-    <label>ชื่อ-นามสกุล</label>
-    <input type="text" name="name" required>
-
-    <label>เบอร์โทรศัพท์</label>
-    <input type="text" name="phone" required>
-
-    <label>ที่อยู่จัดส่ง</label>
-    <textarea name="address" rows="3" required></textarea>
-
-    <button type="submit" onclick="firePixel();">🛍️ กดสั่งซื้อเลย (รับโปรพิเศษ!)</button>
-  </form>
-
-  <!-- ปุ่มแอดไลน์ -->
-  <a href="#" onclick="
-    fbq('track', 'Lead');
-    ttq.track('SubmitForm');
-    setTimeout(function() { window.location.href='https://lin.ee/wKelfsp'; }, 300);
-    return false;
-  " class="line-btn">💬 แอดไลน์ สั่งซื้อกับแอดมิน</a>
-
-  <!-- Countdown -->
-  <div class="countdown">
-    🔥 โปรพิเศษ! เหลือเวลา <span id="timer">10</span> วินาที รีบสั่งนะคะ!
-  </div>
-
-  <!-- Popup -->
-  <div id="popup">
-    ✅ ขอบคุณค่ะ!<br>
-    เจ้าหน้าที่ขนส่งจะโทรหาคุณเพื่อยืนยันการจัดส่งนะคะ 📞
-  </div>
-
-  <!-- Script Zone -->
-  <script>
-    // Countdown
-    let countdownTime = 10;
-    const timerEl = document.getElementById('timer');
-    const countdown = setInterval(() => {
-      countdownTime--;
-      timerEl.textContent = countdownTime;
-      if (countdownTime <= 0) clearInterval(countdown);
-    }, 1000);
-
-    function firePixel() {
-      const product = document.querySelector('input[name="product"]:checked').value;
-      let value = 299;
-
-      fbq('track', 'Purchase', {value: value, currency: 'THB'});
-      ttq.track('CompletePayment');
-    }
-
-    function sendTelegram(event) {
-      event.preventDefault();
-
-      const product = document.querySelector('input[name="product"]:checked').value;
-      const name = document.querySelector('input[name="name"]').value;
-      const phone = document.querySelector('input[name="phone"]').value;
-      const address = document.querySelector('textarea[name="address"]').value;
-
-      const order_id = 'ORD-' + Date.now();
-
-      const message = `🛍️ ออร์เดอร์ใหม่ (Order ID: ${order_id})%0A%0Aสินค้า: ${product}%0Aชื่อ: ${name}%0Aโทร: ${phone}%0Aที่อยู่: ${address}`;
-
-      const botToken = '7781216074:AAGx7CL1EWeehlPI9xlXQr-RWdPfZ5_stQ0';
-      const chatId = '-4891953915';
-
-      const telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`;
-
-      fetch(telegramURL)
-        .then(response => {
-            firePixel();
-            document.getElementById('popup').style.display = 'block';
-            document.getElementById('orderForm').reset();
-        })
-        .catch(error => {
-            alert('เกิดข้อผิดพลาดในการส่งออร์เดอร์ค่ะ!');
-            console.error('Error:', error);
-        });
-    }
-  </script>
-
+    Promise.all([
+      fetch(telegramURL),
+      fetch(sheetURL, { method: "POST", body: formData })
+    ])
+    .then(() => {
+      document.getElementById("popup").style.display = "block";
+      document.getElementById("orderForm").reset();
+    })
+    .catch(err => alert("เกิดข้อผิดพลาดในการส่งข้อมูล"));
+  }
+</script>
 </body>
 </html>
