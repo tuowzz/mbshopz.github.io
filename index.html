@@ -42,6 +42,13 @@
             font-weight: 700; /* ตัวหนา */
             letter-spacing: -0.5px;
         }
+        .tagline {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
         p.price {
             text-align: center;
             font-size: 1.8rem; /* ขนาดตัวอักษร */
@@ -66,54 +73,104 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* เพิ่มเงาที่ดูโปร */
             line-height: 1.5;
         }
+        .features-section {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .features-section h2 {
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* จัดกึ่งกลางสำหรับ desktop */
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            color: #333;
+            gap: 10px;
+        }
+        .feature-item .icon {
+            font-size: 1.5rem;
+            color: #00b900; /* สีเขียวสำหรับไอคอน */
+            margin-right: 5px;
+        }
+
+        .countdown-section {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: #fce4ec; /* สีชมพูอ่อนสำหรับ countdown */
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 2px dashed #fe2c55; /* เส้นประ */
+        }
+        .countdown-section p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #fe2c55;
+            font-weight: 600;
+        }
+        .countdown-timer {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #d6336c;
+            margin-top: 5px;
+        }
+
         form {
-            max-width: 500px; /* เพิ่มขนาด form */
+            max-width: 500px;
             width: 100%;
             margin: 0 auto;
-            padding: 35px; /* เพิ่ม padding ภายใน form */
+            padding: 35px;
             background: #fff;
-            border-radius: 15px; /* โค้งมนขึ้น */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* เพิ่มเงาที่ดูมีมิติ */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
         label {
             display: block;
-            margin-top: 25px; /* เพิ่มระยะห่างจาก label ก่อนหน้า */
+            margin-top: 25px;
             font-size: 1.05rem;
-            font-weight: 600; /* ตัวหนาเล็กน้อย */
+            font-weight: 600;
             color: #444;
-            margin-bottom: 8px; /* ระยะห่างจาก input */
+            margin-bottom: 8px;
         }
         input[type="text"], textarea {
             width: 100%;
             padding: 14px;
             font-size: 1rem;
             border: 1px solid #ddd;
-            border-radius: 10px; /* โค้งมนขึ้น */
+            border-radius: 10px;
             box-sizing: border-box;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
         input:focus, textarea:focus {
             outline: none;
-            border-color: #fe2c55; /* เปลี่ยนสี border เมื่อ focus */
-            box-shadow: 0 0 8px rgba(254, 44, 85, 0.2); /* เพิ่มเงาเมื่อ focus */
+            border-color: #fe2c55;
+            box-shadow: 0 0 8px rgba(254, 44, 85, 0.2);
         }
         button[type="submit"] {
             margin-top: 35px;
             background-color: #fe2c55;
             color: white;
-            padding: 18px 25px; /* เพิ่ม padding ด้านข้าง */
+            padding: 18px 25px;
             width: 100%;
             border: none;
-            border-radius: 12px; /* โค้งมนขึ้น */
+            border-radius: 12px;
             font-size: 1.3rem;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
             font-weight: 700;
-            box-shadow: 0 5px 15px rgba(254, 44, 85, 0.3); /* เพิ่มเงาที่ชัดเจน */
+            box-shadow: 0 5px 15px rgba(254, 44, 85, 0.3);
         }
         button[type="submit"]:hover {
             background-color: #e6234e;
-            transform: translateY(-2px); /* ยกขึ้นเล็กน้อยเมื่อ hover */
+            transform: translateY(-2px);
         }
         button[type="submit"]:disabled {
             background-color: #ccc;
@@ -141,7 +198,7 @@
         .radio-option {
             display: flex;
             align-items: center;
-            gap: 12px; /* เพิ่มระยะห่างระหว่าง radio และ label */
+            gap: 12px;
             margin-top: 15px;
             font-size: 1.05rem;
             padding: 10px 0;
@@ -149,26 +206,26 @@
             color: #333;
         }
         .radio-option input[type="radio"] {
-            -webkit-appearance: none; /* ซ่อน radio button default */
+            -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
-            width: 20px; /* ขนาดของ radio button */
+            width: 20px;
             height: 20px;
             border: 2px solid #ccc;
-            border-radius: 50%; /* ทำให้เป็นวงกลม */
+            border-radius: 50%;
             position: relative;
             cursor: pointer;
             outline: none;
             transition: border-color 0.3s ease;
         }
         .radio-option input[type="radio"]:checked {
-            border-color: #fe2c55; /* สี border เมื่อเลือก */
-            background-color: #fe2c55; /* สีพื้นหลังเมื่อเลือก */
+            border-color: #fe2c55;
+            background-color: #fe2c55;
         }
         .radio-option input[type="radio"]:checked::before {
             content: '';
             display: block;
-            width: 10px; /* ขนาดของวงกลมด้านใน */
+            width: 10px;
             height: 10px;
             background-color: white;
             border-radius: 50%;
@@ -177,8 +234,30 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
-        .radio-option span { /* สำหรับข้อความเฉดสี */
+        .radio-option span {
             flex-grow: 1;
+        }
+
+        .trust-badges {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #e8f5e9; /* สีเขียวอ่อนๆ */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,185,0,0.1);
+        }
+        .trust-badges .badge-item {
+            display: inline-flex;
+            align-items: center;
+            margin: 0 15px;
+            font-size: 0.95rem;
+            color: #388e3c; /* สีเขียวเข้ม */
+            font-weight: 500;
+        }
+        .trust-badges .badge-item .icon {
+            font-size: 1.2rem;
+            margin-right: 8px;
         }
 
         #popup {
@@ -195,7 +274,7 @@
             text-align: center;
             font-size: 1.2rem;
             color: #333;
-            animation: fadeIn 0.3s ease-out; /* เพิ่ม animation */
+            animation: fadeIn 0.3s ease-out;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translate(-50%, -60%); }
@@ -213,20 +292,24 @@
         /* --- Media Queries สำหรับ Mobile --- */
         @media screen and (max-width: 600px) {
             body {
-                padding: 15px; /* ลด padding รอบข้างสำหรับมือถือ */
+                padding: 15px;
             }
             .container {
-                padding: 10px; /* ลด padding ภายใน container */
+                padding: 10px;
             }
             img.product-image {
-                margin-bottom: 20px; /* ปรับ margin-bottom เล็กน้อยสำหรับมือถือ */
+                margin-bottom: 20px;
             }
             h1 {
-                font-size: 2rem; /* ปรับขนาดหัวข้อให้เล็กลง */
+                font-size: 2rem;
                 margin-bottom: 10px;
             }
+            .tagline {
+                font-size: 0.95rem;
+                margin-bottom: 15px;
+            }
             p.price {
-                font-size: 1.5rem; /* ปรับขนาดราคาให้เล็กลง */
+                font-size: 1.5rem;
                 padding: 6px 12px;
                 margin-bottom: 20px;
             }
@@ -236,8 +319,34 @@
                 margin-bottom: 20px;
                 border-radius: 10px;
             }
+            .features-section {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+            .features-section h2 {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+            }
+            .feature-item {
+                font-size: 0.95rem;
+                margin-bottom: 10px;
+                justify-content: flex-start; /* จัดชิดซ้ายบนมือถือ */
+            }
+            .feature-item .icon {
+                font-size: 1.3rem;
+            }
+            .countdown-section {
+                margin-bottom: 20px;
+                padding: 12px 15px;
+            }
+            .countdown-section p {
+                font-size: 1rem;
+            }
+            .countdown-timer {
+                font-size: 1.8rem;
+            }
             form {
-                padding: 25px; /* ลด padding ภายในฟอร์ม */
+                padding: 25px;
                 border-radius: 12px;
             }
             label {
@@ -275,6 +384,19 @@
                 width: 9px;
                 height: 9px;
             }
+            .trust-badges {
+                margin-top: 30px;
+                padding: 15px;
+                border-radius: 10px;
+            }
+            .trust-badges .badge-item {
+                margin: 0 8px;
+                font-size: 0.85rem;
+            }
+            .trust-badges .badge-item .icon {
+                font-size: 1rem;
+                margin-right: 5px;
+            }
             #popup {
                 padding: 25px 30px;
                 font-size: 1rem;
@@ -289,32 +411,48 @@
 <body>
     <div class="container">
         <!-- **โปรดแทนที่ 'YOUR_GITHUB_IMAGE_DIRECT_LINK_HERE' ด้วย Direct Link ของรูปภาพที่คุณได้จาก GitHub** -->
-        <img src="photo_2025-06-10_00-30-00.jpg" alt="M-BLITHE คอนซีลเลอร์" class="product-image" />
+        <img src="YOUR_GITHUB_IMAGE_DIRECT_LINK_HERE" alt="M-BLITHE คอนซีลเลอร์" class="product-image" />
 
         <h1>✨ M-BLITHE คอนซีลเลอร์ ✨</h1>
+        <p class="tagline">เผยผิวเรียบเนียนไร้ที่ติ ปกปิดทุกจุดบกพร่อง ให้คุณมั่นใจตลอดวัน</p>
+
         <p class="price">ลดพิเศษ! เพียง 299 บาท (จากปกติ 390 บาท)</p>
+
         <div class="review">
             ⭐⭐⭐⭐⭐ รีวิวจริงจากลูกค้ากว่า 9,000 คน! ❤️<br>
             "ปกปิดดีเยี่ยม เนื้อเนียน ไม่เป็นคราบ ใช้แล้วชอบมากค่ะ 🥰"
+        </div>
+
+        <div class="features-section">
+            <h2>ทำไมต้อง M-BLITHE คอนซีลเลอร์?</h2>
+            <div class="feature-item"><span class="icon">✅</span>ปกปิดขั้นสุด เรียบเนียน ไม่เห็นรอย</div>
+            <div class="feature-item"><span class="icon">💦</span>กันน้ำ กันเหงื่อ ติดทนนานตลอดวัน</div>
+            <div class="feature-item"><span class="icon">✨</span>เนื้อบางเบา ไม่หนักหน้า ไม่ตกร่อง</div>
+            <div class="feature-item"><span class="icon">🌿</span>อ่อนโยนต่อผิว ไม่ก่อให้เกิดการอุดตัน</div>
+        </div>
+
+        <div class="countdown-section">
+            <p>🔥 **โปรโมชั่นพิเศษนี้จะหมดในอีก:**</p>
+            <div id="countdown-timer" class="countdown-timer"></div>
         </div>
 
         <form id="orderForm" onsubmit="sendOrderToSheet(event);">
             <label>เลือกเฉดสี / ผิวที่ต้องการ</label>
             <label class="radio-option">
                 <input type="radio" name="product" value="B01 - ผิวขาวเหลือง" required>
-                <span>B01 - ผิวขาวเหลือง</span>
+                <span>B01 - ผิวขาวเหลือง - **299 บาท**</span>
             </label>
             <label class="radio-option">
                 <input type="radio" name="product" value="B02 - ผิวสองสีขาวเหลือง">
-                <span>B02 - ผิวสองสีขาวเหลือง</span>
+                <span>B02 - ผิวสองสีขาวเหลือง - **299 บาท**</span>
             </label>
             <label class="radio-option">
                 <input type="radio" name="product" value="B2.5 - ผิวสองสีคล้ำ">
-                <span>B2.5 - ผิวสองสีคล้ำ</span>
+                <span>B2.5 - ผิวสองสีคล้ำ - **299 บาท**</span>
             </label>
             <label class="radio-option">
                 <input type="radio" name="product" value="B03 - ผิวคล้ำ">
-                <span>B03 - ผิวคล้ำ</span>
+                <span>B03 - ผิวคล้ำ - **299 บาท**</span>
             </label>
 
             <label for="name">ชื่อ-นามสกุล</label>
@@ -332,6 +470,12 @@
         <div id="loadingMessage">กำลังส่งข้อมูล... กรุณารอสักครู่</div>
 
         <a href="https://lin.ee/wKelfsp" class="line-btn" target="_blank">💬 สอบถามหรือสั่งซื้อผ่าน LINE</a>
+
+        <div class="trust-badges">
+            <div class="badge-item"><span class="icon">✅</span>เก็บเงินปลายทาง</div>
+            <div class="badge-item"><span class="icon">🚚</span>จัดส่งฟรี ทั่วประเทศ</div>
+            <div class="badge-item"><span class="icon">💯</span>รับประกันคุณภาพสินค้า</div>
+        </div>
     </div>
 
     <div id="popup">✅ ขอบคุณค่ะ! เจ้าหน้าที่จะติดต่อคุณเพื่อยืนยันการจัดส่งค่ะ 📞</div>
@@ -339,6 +483,41 @@
     <script>
         // URL ของ Google Apps Script Web App ของคุณ
         const GOOGLE_SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxvkT44c1V26IyzQW_4FhR4iQ0gmrNvdhF5TnneqNZ-21JXFczyZBo-8EFzhA69WshT/exec';
+
+        // Countdown Timer Logic
+        const countdownElement = document.getElementById('countdown-timer');
+        let timeLeft = 3600; // 1 ชั่วโมงในหน่วยวินาที (หรือปรับตามที่คุณต้องการ)
+        // เพื่อให้เวลาคงที่แม้รีเฟรชหน้าเว็บ อาจจะใช้ localStorage เก็บค่านี้
+        // const storedTime = localStorage.getItem('countdownTime');
+        // if (storedTime) {
+        //     timeLeft = parseInt(storedTime, 10);
+        // } else {
+        //     localStorage.setItem('countdownTime', timeLeft);
+        // }
+
+        function formatTime(seconds) {
+            const h = Math.floor(seconds / 3600);
+            const m = Math.floor((seconds % 3600) / 60);
+            const s = seconds % 60;
+            return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+
+        function updateCountdown() {
+            if (timeLeft <= 0) {
+                countdownElement.textContent = 'หมดโปรโมชั่น!';
+                // สามารถซ่อนหรือปิดการใช้งานปุ่มสั่งซื้อได้เมื่อหมดเวลา
+                document.querySelector('button[type="submit"]').disabled = true;
+                return;
+            }
+            countdownElement.textContent = formatTime(timeLeft);
+            timeLeft--;
+            // localStorage.setItem('countdownTime', timeLeft); // อัปเดตใน localStorage
+        }
+
+        // เริ่มต้น Countdown ทันทีและตั้ง Interval
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
 
         function sendOrderToSheet(event) {
             event.preventDefault(); // ป้องกันการรีเฟรชหน้าเว็บเมื่อกด submit
