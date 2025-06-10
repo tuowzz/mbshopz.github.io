@@ -494,19 +494,19 @@
         <form id="orderForm" onsubmit="sendOrderToSheet(event);">
             <label>เลือกเฉดสี / ผิวที่ต้องการ</label>
             <label class="radio-option">
-                <input type="radio" name="product" value="B01 - ผิวขาวเหลือง" required>
+                <input type="radio" name="product" value="B01 - ผิวขาวเหลือง - 299 บาท" required>
                 <span>B01 - ผิวขาวเหลือง - **299 บาท**</span>
             </label>
             <label class="radio-option">
-                <input type="radio" name="product" value="B02 - ผิวสองสีขาวเหลือง">
+                <input type="radio" name="product" value="B02 - ผิวสองสีขาวเหลือง - 299 บาท">
                 <span>B02 - ผิวสองสีขาวเหลือง - **299 บาท**</span>
             </label>
             <label class="radio-option">
-                <input type="radio" name="product" value="B2.5 - ผิวสองสีคล้ำ">
+                <input type="radio" name="product" value="B2.5 - ผิวสองสีคล้ำ - 299 บาท">
                 <span>B2.5 - ผิวสองสีคล้ำ - **299 บาท**</span>
             </label>
             <label class="radio-option">
-                <input type="radio" name="product" value="B03 - ผิวคล้ำ">
+                <input type="radio" name="product" value="B03 - ผิวคล้ำ - 299 บาท">
                 <span>B03 - ผิวคล้ำ - **299 บาท**</span>
             </label>
 
@@ -598,6 +598,7 @@
             }
 
             const order_id = 'ORD-' + Date.now();
+            // ตอนนี้ค่า product จะรวมราคาแล้ว
             const product = productElement.value;
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
@@ -606,7 +607,7 @@
             // สร้าง FormData object เพื่อส่งข้อมูลแบบ POST ไปยัง Google Apps Script
             const formData = new FormData();
             formData.append("order_id", order_id);
-            formData.append("product", product);
+            formData.append("product", product); // จะมีราคาติดไปด้วย
             formData.append("name", name);
             formData.append("phone", phone);
             formData.append("address", address);
