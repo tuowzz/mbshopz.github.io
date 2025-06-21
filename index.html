@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <!-- Facebook Pixel & TikTok Pixel -->
   <script>
+    // Facebook Pixel
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -24,10 +25,12 @@
     fbq('init', '127978927946856');
     fbq('track', 'PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=127978927946856&ev=PageView&noscript=1"
-  /></noscript>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=127978927946856&ev=PageView&noscript=1"/>
+  </noscript>
   <script>
+    // TikTok Pixel
     !function (w, d, t) {
       w.TiktokAnalyticsObject = t;
       var ttq = w[t] = w[t] || [];
@@ -268,7 +271,7 @@
     <div class="avatar">MB</div>
     <div class="shop-details">
       <div class="shop-name">M-BLITHE Official</div>
-      <a href="https://lin.ee/wKelfsp" target="_blank" style="text-decoration: none; color: var(--light-text); font-size: 0.9rem;">
+      <a href="https://lin.ee/wKelfsp" target="_blank" style="text-decoration: none; color: var(--light-text); font-size: 0.9rem;" id="addLineBtn">
         <i class="fa-brands fa-line" style="color: #00b900;"></i> สอบถามทาง LINE
       </a>
     </div>
@@ -407,12 +410,32 @@
     });
     function openModal() { buyNowModal.style.display = 'flex'; }
     function closeModal() { buyNowModal.style.display = 'none'; }
-    buyNowBtn.addEventListener('click', openModal);
-    optionsTrigger.addEventListener('click', openModal);
+    buyNowBtn.addEventListener('click', function() {
+      openModal();
+      trackInitiateCheckout();
+    });
+    optionsTrigger.addEventListener('click', function() {
+      openModal();
+      trackInitiateCheckout();
+    });
     closeModalBtn.addEventListener('click', closeModal);
     buyNowModal.addEventListener('click', (event) => {
       if (event.target === buyNowModal) { closeModal(); }
     });
+
+    // === PIXEL EVENT TRACKING ===
+    function trackInitiateCheckout() {
+      if(window.fbq) fbq('track', 'InitiateCheckout');
+      if(window.ttq) ttq.track('InitiateCheckout');
+    }
+    const addLineBtn = document.getElementById('addLineBtn');
+    if (addLineBtn) {
+      addLineBtn.addEventListener('click', function() {
+        if(window.fbq) fbq('track', 'Contact');
+        if(window.ttq) ttq.track('Contact');
+      });
+    }
+
     function sendOrderToSheet(event) {
       event.preventDefault();
       if (!selectedProduct) {
@@ -434,8 +457,9 @@
         submitButton.disabled = false;
         submitButton.textContent = originalButtonText;
         if (data.result === 'success') {
-          fbq('track', 'Purchase', {value: 299.00, currency: 'THB'});
-          ttq.track('CompletePayment');
+          // Trigger purchase event
+          if(window.fbq) fbq('track', 'Purchase', {value: 299.00, currency: 'THB'});
+          if(window.ttq) ttq.track('CompletePayment');
           closeModal();
           orderForm.reset();
           selectedOptionText.textContent = 'โปรดเลือกเฉดสี';
