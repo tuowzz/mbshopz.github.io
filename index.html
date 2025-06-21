@@ -4,16 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>🛍️ M-BLITHE คอนซีลเลอร์</title>
-  <!-- AdSense meta (ใหม่!) -->
   <meta name="google-adsense-account" content="ca-pub-7416292559334504">
-  <!-- AdSense script (ใส่ใน head ครั้งเดียวพอ) -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7416292559334504"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7416292559334504" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <!-- Facebook Pixel & TikTok Pixel -->
   <script>
-    // Facebook Pixel
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -30,7 +26,6 @@
       src="https://www.facebook.com/tr?id=127978927946856&ev=PageView&noscript=1"/>
   </noscript>
   <script>
-    // TikTok Pixel
     !function (w, d, t) {
       w.TiktokAnalyticsObject = t;
       var ttq = w[t] = w[t] || [];
@@ -72,6 +67,8 @@
       --border-color: #e8e8e8;
       --trust-bg: #fff3d6;
       --trust-color: #e65c00;
+      --line-green: #06C755;
+      --line-green-hover: #04803e;
     }
     body {
       font-family: 'Kanit', sans-serif;
@@ -140,6 +137,33 @@
       color: var(--white-color); background: linear-gradient(135deg, #ff7e5f, #feb47b);
     }
     .shop-info .shop-name { font-weight: 600; }
+    /* ปุ่มแอดไลน์ใหญ่เด่น */
+    .btn-add-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--line-green);
+      color: #fff !important;
+      font-size: 1.04rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      padding: 13px 26px;
+      margin-top: 14px;
+      margin-bottom: 2px;
+      cursor: pointer;
+      transition: background .2s;
+      box-shadow: 0 2px 10px 0 rgba(6,199,85,0.08);
+      text-decoration: none;
+    }
+    .btn-add-line:hover, .btn-add-line:active {
+      background: var(--line-green-hover);
+      color: #fff;
+      text-decoration: none;
+    }
+    .btn-add-line i {
+      font-size: 1.5rem;
+    }
     .product-details h3, .reviews-section h3 {
       font-size: 1.1rem; font-weight: 600; margin-bottom: 15px;
     }
@@ -233,11 +257,13 @@
       z-index: 9999; text-align: center; font-size: 1rem;
     }
     #successPopup i { font-size: 2rem; margin-bottom: 10px; color: #4CAF50; }
+    @media (max-width: 600px) {
+      .btn-add-line { width: 100%; justify-content: center; padding: 15px 0; font-size: 1.1rem; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- TRUST BANNER -->
   <div class="trust-banner">
     ✅ ของแท้ 100% | เก็บเงินปลายทาง | รีวิวลูกค้ากว่า 9,000+ คน
   </div>
@@ -271,8 +297,8 @@
     <div class="avatar">MB</div>
     <div class="shop-details">
       <div class="shop-name">M-BLITHE Official</div>
-      <a href="https://lin.ee/wKelfsp" target="_blank" style="text-decoration: none; color: var(--light-text); font-size: 0.9rem;" id="addLineBtn">
-        <i class="fa-brands fa-line" style="color: #00b900;"></i> สอบถามทาง LINE
+      <a href="https://lin.ee/wKelfsp" target="_blank" class="btn-add-line" id="addLineBtn">
+        <i class="fa-brands fa-line"></i> สอบถาม-รับโปรผ่าน LINE
       </a>
     </div>
   </div>
@@ -293,8 +319,7 @@
     <div class="feature-item"><span class="icon">✅</span>ปกปิดขั้นสุด เรียบเนียน ไม่เห็นรอย</div>
     <div class="feature-item"><span class="icon">💦</span>กันน้ำ กันเหงื่อ ติดทนนานตลอดวัน</div>
     <div class="feature-item"><span class="icon">✨</span>เนื้อบางเบา ไม่หนักหน้า ไม่ตกร่อง</div>
-    <div class="feature-item"><span class="icon">🌿</span>อ่อนโยนต่อผิว ไม่ก่อให้เกิดการอุดตัน
-    </div>
+    <div class="feature-item"><span class="icon">🌿</span>อ่อนโยนต่อผิว ไม่ก่อให้เกิดการอุดตัน</div>
   </div>
 
   <div class="content-padding reviews-section">
@@ -315,7 +340,6 @@
     </div>
   </div>
 
-  <!-- วาง Banner Google AdSense ที่นี่ -->
   <div style="width:100%; max-width:400px; margin:18px auto 14px auto; border-radius:12px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.07); background:#fff;">
     <ins class="adsbygoogle"
          style="display:block; text-align:center; min-height:100px;"
@@ -326,7 +350,6 @@
          (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   </div>
-  <!-- /Banner AdSense -->
 
   <footer class="sticky-footer">
     <a href="https://lin.ee/wKelfsp" target="_blank" class="icon-btn">
@@ -391,7 +414,6 @@
     const modalSelectedOptionText = document.getElementById('modal-selected-option-text');
     const productInput = document.getElementById('productInput');
     let selectedProduct = null;
-    // Populate product options
     products.forEach(product => {
       const btn = document.createElement('button');
       btn.type = 'button';
@@ -422,8 +444,6 @@
     buyNowModal.addEventListener('click', (event) => {
       if (event.target === buyNowModal) { closeModal(); }
     });
-
-    // === PIXEL EVENT TRACKING ===
     function trackInitiateCheckout() {
       if(window.fbq) fbq('track', 'InitiateCheckout');
       if(window.ttq) ttq.track('InitiateCheckout');
@@ -435,7 +455,6 @@
         if(window.ttq) ttq.track('Contact');
       });
     }
-
     function sendOrderToSheet(event) {
       event.preventDefault();
       if (!selectedProduct) {
@@ -448,6 +467,12 @@
       submitButton.disabled = true;
       submitButton.textContent = 'กำลังส่งข้อมูล...';
       const formData = new FormData(orderForm);
+      // **** สำคัญ! ****
+      // แก้ไขเบอร์โทรให้เป็น '0812345678 เพื่อกันศูนย์นำหน้าหาย
+      const phoneField = orderForm.querySelector('#phone');
+      if (phoneField && phoneField.value && !phoneField.value.startsWith("'")) {
+        formData.set('phone', "'" + phoneField.value);
+      }
       formData.set("order_id", 'ORD-' + Date.now());
       fetch(GOOGLE_SHEET_WEB_APP_URL, {
         method: "POST", body: formData
@@ -457,7 +482,6 @@
         submitButton.disabled = false;
         submitButton.textContent = originalButtonText;
         if (data.result === 'success') {
-          // Trigger purchase event
           if(window.fbq) fbq('track', 'Purchase', {value: 299.00, currency: 'THB'});
           if(window.ttq) ttq.track('CompletePayment');
           closeModal();
@@ -465,7 +489,6 @@
           selectedOptionText.textContent = 'โปรดเลือกเฉดสี';
           document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
           selectedProduct = null;
-          // Show success popup
           const successPopup = document.getElementById('successPopup');
           successPopup.style.display = 'block';
           setTimeout(() => { successPopup.style.display = 'none'; }, 3000);
